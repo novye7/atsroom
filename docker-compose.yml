@@ -1,0 +1,13 @@
+services:
+  atsroom:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - AUTH_PASSWORD=changeme
+    volumes:
+      - atsroom-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  atsroom-data:

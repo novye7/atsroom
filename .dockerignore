@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+.git
+legacy
+data
+.trellis
+.claude
+.codex
+claude
+.env
+*.db
+*.db-shm
+*.db-wal

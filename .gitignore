@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+data/*.db
+data/*.db-shm
+data/*.db-wal
+**/data/*.db
+**/data/*.db-shm
+**/data/*.db-wal
+backups/
+.env
+*.tsbuildinfo
+legacy/
+dist/

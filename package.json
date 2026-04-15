@@ -1,0 +1,16 @@
+{
+  "name": "how-many-ats",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:server": "npm run dev --workspace=@howmanyat/server",
+    "dev:static": "npm run dev --workspace=@howmanyat/static",
+    "build:server": "npm run build --workspace=@howmanyat/server",
+    "build:static": "npm run build --workspace=@howmanyat/static",
+    "build": "npm run build:server && npm run build:static",
+    "lint": "npm run lint --workspace=@howmanyat/server --if-present"
+  }
+}
