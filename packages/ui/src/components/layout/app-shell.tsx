@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { AppNav } from "./app-nav";
 import { CapsuleList } from "../capsules/capsule-list";
-import { initFaviconDetect } from "../../lib/favicon-detect";
 
 export function AppShell() {
   useEffect(() => {
@@ -17,10 +16,6 @@ export function AppShell() {
     }
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
-  }, []);
-
-  useEffect(() => {
-    initFaviconDetect();
   }, []);
 
   return (

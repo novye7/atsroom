@@ -6,7 +6,7 @@ import { CSS } from "@dnd-kit/utilities";
 import { GripVertical } from "lucide-react";
 import { CapsuleCard } from "./capsule-card";
 import { useIsMobile } from "../../hooks/use-mobile";
-import { isGlobeFavicon } from "../../lib/favicon-detect";
+import { DomainFavicon } from "../ui/domain-favicon";
 import type { AccountWithDetails } from "../../types";
 
 interface DomainSectionProps {
@@ -36,8 +36,6 @@ export function DomainSection({ id, domain, accounts, isDragging }: DomainSectio
     [accounts]
   );
 
-  const faviconUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
-
   return (
     <section
       ref={setNodeRef}
@@ -46,33 +44,7 @@ export function DomainSection({ id, domain, accounts, isDragging }: DomainSectio
     >
       {/* Domain header — draggable on desktop */}
       <div className="flex items-center gap-2 mb-2 group/domain">
-        {/* Favicon — fetch at 64px for sharp rendering, display at 16px */}
-        <img
-          crossOrigin="anonymous"
-          src={faviconUrl}
-          alt=""
-          width={16}
-          height={16}
-          className="shrink-0 rounded-sm"
-          onLoad={(e) => {
-            if (isGlobeFavicon(e.currentTarget)) {
-              const img = e.currentTarget;
-              if (!img.src.includes("mail.")) {
-                img.src = `https://www.google.com/s2/favicons?domain=mail.${domain}&sz=64`;
-              } else {
-                img.style.display = "none";
-              }
-            }
-          }}
-          onError={(e) => {
-            const img = e.target as HTMLImageElement;
-            if (!img.src.includes("mail.")) {
-              img.src = `https://www.google.com/s2/favicons?domain=mail.${domain}&sz=64`;
-            } else {
-              img.style.display = "none";
-            }
-          }}
-        />
+        <DomainFavicon domain={domain} size={16} />
         <span className="font-serif font-medium italic text-[16px] text-[var(--text-primary)]">
           {domain}
         </span>

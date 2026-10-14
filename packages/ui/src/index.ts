@@ -46,6 +46,8 @@ export {
 export { Toaster } from "./components/ui/sonner";
 
 export { EmailAvatar } from "./components/ui/email-avatar";
+export { PlaceholderAvatar } from "./components/ui/placeholder-avatar";
+export { DomainFavicon } from "./components/ui/domain-favicon";
 
 // ─── Labels ───
 export { LabelChip } from "./components/labels/label-chip";
